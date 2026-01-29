@@ -213,8 +213,8 @@ BEGIN
 	case 
 		when upper(trim(gen)) in( 'M','MALE') then 'Male'
 		When Upper(trim(gen)) in ('F','FEMALE') then 'Female'
-		when gen is null then trim('Unknown')
-		when len(gen) = 0 then 'Unknown'
+		when gen is null then trim('n/a')
+		when len(gen) = 0 then 'n/a'
 		else gen
 	end as gen
 	from bronze.erp_cust_az12 ;
@@ -239,7 +239,7 @@ BEGIN
 	case
 		when cntry in ('USA','US','UNITED STATES','united states') then 'United States'
 		when cntry in ('DE','GERMANY','germany') then 'Germany'
-		when cntry is null or cntry = ' ' then 'Unknown'
+		when cntry is null or cntry = ' ' then 'n/a'
 		else cntry
 	end as cntry
 	from bronze.erp_loc_a101;
